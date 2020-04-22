@@ -27,14 +27,6 @@ def map_images():
         character = os.path.splitext(character)[0]
         tmp = Image.open(char)
         tmp.convert('RGBA')
-        datas = tmp.getdata()
-        newData = []
-        for item in datas:
-            if item[0] == 255 and item[1] == 255 and item[2] == 255:
-                newData.append((255, 255, 255, 0))
-            else:
-                newData.append(item)
-        tmp.putdata(newData)
         character_map[character] = tmp
     return character_map
 
